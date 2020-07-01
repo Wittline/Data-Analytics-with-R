@@ -5,7 +5,11 @@ Repository for data analytics course using R
 
 
 <details open>
-    genetic al
+<summary> The Basics of Scripts in R </summary>
+</details>
+
+
+<details open>
 <summary> Genetic algorithms </summary>
     <ul style="font-weight: bold;">                
     <li>

@@ -1,2 +1,2 @@
-# Data-Analytics-with-R
+# Data Analytics with R
 Repository for data analytics course

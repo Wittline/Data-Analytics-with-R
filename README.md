@@ -5,9 +5,8 @@ Repository for data analytics course using R
 
 
 <details open>
-<summary> The Basics of Scripts in R </summary>
+<summary> Hands-On with R </summary>
 </details>
-
 
 <details open>
 <summary> Genetic algorithms </summary>

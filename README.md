@@ -4,7 +4,8 @@
 Repository for data analytics course using R
 
 
-<details open>   
+<details open>
+    genetic al
 <summary> Genetic algorithms </summary>
     <ul style="font-weight: bold;">                
     <li>

@@ -16,6 +16,13 @@ Repository for data analytics course using R
 <details open>    
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Paper%20reviews/Bigtable_review.html">Paper review - <strong> Bigtable: A Distributed Storage System for Structured Data <strong></a> </summary>    
 </details>
+  
+ <details open>    
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Cassandra/Cassandra_review.html">Cassandra NoSQL</a> </summary>
+</details>
+  
+  
+  
 
 ## Contributing and Feedback
 Help me to improve, you can insult me, criticize me, eulogy me or just copy and paste my homework

@@ -5,15 +5,16 @@ Repository for data analytics course using R
 
 
 <details open>
-<summary> Hands-On with R </summary>
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Hands-On%20with%20R/Hands_On_with_R.html">Hands-On with R</a>
+  </summary>
 </details>
 
 <details open>    
-<summary> <a href="https://wittline.github.io/Python/L4/4.2/Coverage1/cov1_Ramses_Coraspe.html">Genetic algorithms</a> </summary>    
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Genetic%20algorithms/Genetic_algorithms_with_R.html">Genetic algorithms</a> </summary>    
 </details>
 
 <details open>    
-<summary> <a href="https://wittline.github.io/Python/L4/4.2/Coverage1/cov1_Ramses_Coraspe.html">Paper review: <strong> Bigtable: A Distributed Storage System for Structured Data<strong></a> </summary>    
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Paper%20reviews/Bigtable_review.html">Paper review - <strong> Bigtable: A Distributed Storage System for Structured Data <strong></a> </summary>    
 </details>
 
 ## Contributing and Feedback

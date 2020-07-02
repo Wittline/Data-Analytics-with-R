@@ -12,6 +12,10 @@ Repository for data analytics course using R
 <summary> <a href="https://wittline.github.io/Python/L4/4.2/Coverage1/cov1_Ramses_Coraspe.html">Genetic algorithms</a> </summary>    
 </details>
 
+<details open>    
+<summary> <a href="https://wittline.github.io/Python/L4/4.2/Coverage1/cov1_Ramses_Coraspe.html">Paper review: <strong> Bigtable: A Distributed Storage System for Structured Data<strong></a> </summary>    
+</details>
+
 ## Contributing and Feedback
 Help me to improve, you can insult me, criticize me, eulogy me or just copy and paste my homework
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bigtable: A Distributed Storage System for Structured Data</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<style type="text/css">
+		body {
+	  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+	  margin: 2em;
+	}
+
+	@media (min-width: 575px) {
+	  article {
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	  }
+	}	
+	</style>
+	
+  </head> 
+
+  <body>
+     <article role="main">
+		<p style="text-align: center;"><strong>Paper review</strong></p>
+		<h1 style="text-align: center;"><strong>Bigtable: </strong>A Distributed Storage System for Structured Data</h1>
+		<p>&nbsp;</p>
+		<p><strong>Bigtable</strong> is a distributed storage system, column-oriented data store, scalable, highly available and high performing for managing structured data at Google.&nbsp;this system was crucial in the development of powerful open source databases like&nbsp;<strong class="ez gb">Cassandra</strong>. It is&nbsp;used by differents Google products and projects, including Google Analytics, Google Finance, Google Earth and Google search. These products use this kind of storage for a variety of demanding workloads.</p>
+		<p>&nbsp;</p>
+		<h2 style="text-align: justify;"><strong>Data Model</strong></h2>
+		<p style="text-align: justify;">A Bigtable is a sparse, distributed, persistent multidimensional sorted map. The map is indexed by a row key, column key, and a timestamp; each value in the map is an uninterpreted array of bytes.</p>
+		<ul>
+		<li style="text-align: justify;"><strong>Rows:&nbsp;</strong>The row keys in a table are arbitrary strings, up to 64KB in size,&nbsp;Every read or write of data under a single row key is atomic, there is concurrent updates to the same row.&nbsp;Bigtable maintains data in lexicographic order by row key. The row range for a table is dynamically partitioned. Each row range is called a <strong>tablet</strong>, which is the unit of distribution and load balancing.</li>
+		<li style="text-align: justify;"><strong>Column Families:&nbsp;</strong>Column keys are grouped into sets called column families,&nbsp;All data stored in a column family is usually of the same type, the data is compressed&nbsp;in the same column family together.&nbsp;A column family must be created before data can be stored under any column key in that family; after a family has been created, any column key within the family can be used.</li>
+		<li style="text-align: justify;"><strong>Timestamps:&nbsp;</strong>Each cell in a Bigtable can contain multiple versions of the same data, these versions are indexed by timestamp,&nbsp; timestamps are 64-bit integers,&nbsp;Applications that need to avoid collisions must generate unique timestamps themselves. Different versions of a cell are stored in decreasing timestamp order, so that the most recent versions can be read first.</li>
+		</ul>
+		<h2><strong>API</strong></h2>
+		<p style="text-align: justify;">The Bigtable API provides functions for creating and deleting tables and column families. It also provides functions for changing cluster, table, and column family metadata, such as access control rights.</p>
+		<h2><strong>Google infrastructure on which Bigtable depends</strong></h2>
+		<p style="text-align: justify;">Bigtable uses Google File System <strong>GFS</strong>&nbsp;for storing logs and data in SSTable file format. <strong>SSTable</strong> provides an immutable, ordered (key, value) map. An SSTable consists of a sequence of blocks and a block index to locate the blocks. When the SSTable is opened, this index is loaded into the main memory for fast lookup.&nbsp;Internally, each SSTable contains a sequence of blocks (typically each block is 64KB in size, but this is configurable).</p>
+		<p style="text-align: justify;"><br />Bigtable also uses a highly available and persistent distributed lock service called <strong>Chubby</strong> for handling synchronization issues. A Chubby service consists of five active replicas, one of which is elected to be the master and actively serve requests. The service is live when a majority of the replicas are running and can communicate with each other. Each Chubby client maintains a session with a Chubby service.</p>
+		<h2>Implementation</h2>
+		<p style="text-align: justify;"><strong>Master</strong> assigns a tablet to a tablet server. When a tablet server has capacity, master can send the &ldquo;load tablet&rdquo; to the tablet server. When the tablet server dies the master can reassign the tablet to another tablet server.&nbsp; Once the master restarts, it can go over the chubby namespace and discover all the tablet servers. Then master also scans the <strong>METADATA</strong> table to see which are the currently unassigned tablets and then assign it accordingly. Also master will take an exclusive lock on a common chubby file to have a single leader and to avoid multiple instantiations of the master.</p>
+		<p style="text-align: justify;">In addition to the above, master is checking periodically with the tablet servers to check which tablets are they serving. If the master cannot reach them, it can take the chubby lock on the file and if it gets it then it knows that tablet server is having trouble reaching the chubby file. The persistence is provides by GFS. But each Write operation is written to a log. There is <strong>memtable</strong> that keeps track of the most recent operations since the last checkpoint. Older updates are stored in SSTables on disk.&nbsp; New records continuously are reaching the tablet server. It then keeps on increasing the memtable and then after a threshold, memtable is frozen and converted to an on-disk SSTable. This offloads the memory pressure on the tablet server. It also acts as a checkpoint and reduces the amount of data to be recreated from the commit log. This is called a minor <strong>compaction</strong>. It is possible that these minor compactions create too many small SSTables and hence a major compaction can be run in the background to create a consolidated SSTable.</p>
+		<p style="text-align: justify;">&nbsp;</p>
+		<h2><strong>Relevant refinements</strong></h2>
+		<ul>
+		<li style="text-align: justify;"><strong>Locality groups:&nbsp;</strong>Clients can group multiple column families together into a locality group. A separate SSTable is generated for each locality group in each tablet. Segregating column families that are not typically accessed together into separate locality groups enables more efficient reads.</li>
+		<li style="text-align: justify;"><strong>Compression:&nbsp;</strong>Clients can control whether or not the SSTables for a locality group are compressed, and if so, which compression format is used. The user specified compression format is applied to each SSTable block. Although we lose some space by compressing each block separately, we benefit in that small portions of an SSTable can be read without decompressing the entire file. Many clients use a two-pass custom compression scheme. The first pass uses Bentley and McIlroy&rsquo;s scheme [6], which compresses long common strings across a large window. The second pass uses a fast compression algorithm that looks for repetitions in a small 16 KB window of the data. Both compression passes are very fast, they encode at 100&ndash;200 MB/s, and decode at 400&ndash;1000 MB/s on modern machines.&nbsp;Even though we emphasized speed instead of space reduction when choosing our compression algorithms, this two-pass compression scheme does surprisingly well. Compression ratios get even better when we store multiple versions of the same value in Bigtable.</li>
+		</ul>
+		<p>&nbsp;</p>
+		<h2><strong>Performance</strong></h2>
+		<p style="text-align: justify;">Despite the fact that this document offers the company's own evaluations of performance, the next URL will give you better and clear explanation about the performance.</p>
+		<p style="text-align: justify;"><a title="Bigtable: Performance &amp; Scalability Benchmark" href="https://people.cs.kuleuven.be/~bettina.berendt/teaching/2010-11-2ndsemester/ctdb/Mini-workshops/H8_copres_Appermont.pdf" target="_blank" rel="noopener">https://people.cs.kuleuven.be/~bettina.berendt/teaching/2010-11-2ndsemester/ctdb/Mini-workshops/H8_copres_Appermont.pdf</a></p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p><strong>Ramses Alexander Coraspe Valdez</strong></p>
+		<p><strong>July 2, 2020</strong></p>
+		<p>&nbsp;</p>
+
+    </article>
+  </body>
+</html>

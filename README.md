@@ -20,9 +20,11 @@ Repository for data analytics course using R
 <details open>
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Cassandra/Cassandra_review.html">Cassandra NoSQL</a> </summary>
 </details>
-  
-  
-  
+
+<details open>
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Pentaho/Pentaho_review.html">Pentaho </a> </summary>
+</details>  
+    
 
 ## Contributing and Feedback
 Help me to improve, you can insult me, criticize me, eulogy me or just copy and paste my homework

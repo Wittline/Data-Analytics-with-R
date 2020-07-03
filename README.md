@@ -14,7 +14,7 @@ Repository for data analytics course using R
 </details>
 
 <details open>    
-<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Paper%20reviews/Bigtable_review.html">Paper review - <strong> Bigtable: A Distributed Storage System for Structured Data </strong></a> </summary>    
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Paper%20reviews/Bigtable-review.html">Paper review - <strong> Bigtable: A Distributed Storage System for Structured Data </strong></a> </summary>    
 </details>
   
 <details open>

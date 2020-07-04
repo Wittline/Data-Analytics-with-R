@@ -1,5 +1,3 @@
-# Ramses Alexander Coraspe Valdez
-
 ## Data Analytics with R
 Repository for data analytics course using R
 

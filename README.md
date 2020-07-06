@@ -1,6 +1,7 @@
 ## Data Analytics with R
 Repository for data analytics course using R
 
+
 <details open>
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Hands-On%20with%20R/Hands_On_with_R.html">Hands-On with R</a>
   </summary>

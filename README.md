@@ -23,6 +23,10 @@ Repository for data analytics course using R
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R/Pentaho/Pentaho_review.html">Pentaho </a> </summary>
 </details>      
 
+<details open>
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/ Kmeans_review.html"> K-means </a> </summary>
+</details>
+
 ## Contributing and Feedback
 Help me to improve, you can insult me, criticize me, eulogy me or just copy and paste my homework
 

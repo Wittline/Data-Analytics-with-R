@@ -24,7 +24,7 @@ Repository for data analytics course using R
 </details>      
 
 <details open>
-<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/ Kmeans_review.html"> K-means </a> </summary>
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/Kmeans_review.html"> K-means </a> </summary>
 </details>
 
 ## Contributing and Feedback

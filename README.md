@@ -25,7 +25,7 @@ Repository for data analytics course using R
 
 <details open>
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R"> K-means examples </a> </summary>
-      <ul style="font-weight: bold;">                
+      <ul>                
           <li>
               <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r.html">k-means (Iris dataset)</a>
           </li>

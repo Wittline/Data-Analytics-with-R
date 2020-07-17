@@ -31,7 +31,10 @@ Repository for data analytics course using R
           </li>
           <li>
               <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r_2.html">k-means (Image compression)</a>
-          </li>             
+          </li>
+          <li>
+              <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r_2.html">k-means</a>
+          </li>
   </ul> 
 </details>
 

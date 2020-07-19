@@ -27,13 +27,13 @@ Repository for data analytics course using R
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R"> K-means and CART (Classification and Regression Trees) </a> </summary>
       <ul>                
           <li>
-              <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r.html">k-means (Iris dataset)</a>
+              <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r.html">k-means (Iris)</a>
           </li>
           <li>
               <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/kmeans_with_r_2.html">k-means (Image compression)</a>
           </li>
           <li>
-            <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/Clustering_countries_with_R.html">K-means and CART (Clustering the countries needing international AID )</a>
+            <a href="https://wittline.github.io/Data-Analytics-with-R/K-means/Clustering_countries_with_R.html">K-means and CART (Countries needing international AID )</a>
           </li>
   </ul> 
 </details>

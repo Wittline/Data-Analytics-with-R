@@ -37,7 +37,6 @@ Repository for data analytics course using R
           </li>
   </ul> 
 </details>
-
 <details open>
 <summary> <a href="https://wittline.github.io/Data-Analytics-with-R"> Scala </a> </summary>
       <ul>                

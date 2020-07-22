@@ -38,6 +38,15 @@ Repository for data analytics course using R
   </ul> 
 </details>
 
+<details open>
+<summary> <a href="https://wittline.github.io/Data-Analytics-with-R"> Scala </a> </summary>
+      <ul>                
+          <li>
+              <a href="https://wittline.github.io/Data-Analytics-with-R/Scala/review.html"> Scala Review </a>
+          </li>
+      </ul> 
+</details>
+
 ## Contributing and Feedback
 Help me to improve, you can insult me, criticize me, eulogy me or just copy and paste my homework
 

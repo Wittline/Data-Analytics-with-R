@@ -1,5 +1,5 @@
 ## Data Analytics with R
-Repository for data analytics course using R
+Data analytics using R
 
 
 <details open>
